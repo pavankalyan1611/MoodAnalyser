@@ -19,10 +19,21 @@ namespace MoodAnalyserPbr
         }
         public string analyseMood()
         {
-            if (this.message.ToUpper().Contains("SAD"))
-                return "SAD";
-            else
-                return "HAPPY";
+           
+                if (this.message.Equals(string.Empty))
+                {
+                    return "Mood should not be empty";
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                   
+                }
+                else
+                {
+                    if (this.message.ToUpper().Contains("SAD"))
+                        return "SAD";
+                    else
+                        return "HAPPY";
+                }
+                                              
         }       
     }
 }

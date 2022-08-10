@@ -23,12 +23,12 @@ namespace MoodAnalyserTest
         //}
 
         [TestMethod]
-        public void GivenAnyMoodMessage_WhenAnalyseShouldReturnHappy()
+        public void GivenEmptyMessage_WhenAnalyseShouldReturnExceptionMessage()
         {
             //Arrange
-            string message = "I am in Any Mood";
+            string message = "";
             MoodAnalyser analyser = new MoodAnalyser(message);
-            string expected = "HAPPY";
+            string expected = "Mood should not be empty";
 
             //Act
             string actual = analyser.analyseMood();
