@@ -26,9 +26,9 @@ namespace MoodAnalyserTest
         public void GivenEmptyMessage_WhenAnalyseShouldReturnExceptionMessage()
         {
             //Arrange
-            string message = "";
-            MoodAnalyser analyser = new MoodAnalyser(message);
-            string expected = "Mood should not be empty";
+            string message =null;
+            MoodAnalyser analyser = new MoodAnalyser();
+            string expected = "HAPPY";
 
             //Act
             string actual = analyser.analyseMood();
@@ -36,6 +36,5 @@ namespace MoodAnalyserTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
-
     }
 }
