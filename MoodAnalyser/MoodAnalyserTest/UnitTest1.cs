@@ -11,12 +11,12 @@ namespace MoodAnalyserTest
         public void GivenSadMoodMessage_WhenAnalyseShouldReturnSad()
         {
             //Arrange
-            MoodAnalyser analyser = new MoodAnalyser();
             string message = "I am in Sad Mood";
+            MoodAnalyser analyser = new MoodAnalyser(message);
             string expected = "SAD";
 
             //Act
-            string actual = analyser.analyseMood(message);
+            string actual = analyser.analyseMood();
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -26,12 +26,12 @@ namespace MoodAnalyserTest
         public void GivenAnyMoodMessage_WhenAnalyseShouldReturnHappy()
         {
             //Arrange
-            MoodAnalyser analyser = new MoodAnalyser();
             string message = "I am in Any Mood";
+            MoodAnalyser analyser = new MoodAnalyser(message);
             string expected = "HAPPY";
 
             //Act
-            string actual = analyser.analyseMood(message);
+            string actual = analyser.analyseMood();
 
             //Assert
             Assert.AreEqual(expected, actual);

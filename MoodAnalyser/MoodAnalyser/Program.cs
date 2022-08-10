@@ -1,10 +1,9 @@
 ﻿
 using MoodAnalyserPbr;
 
-
-MoodAnalyser mood = new MoodAnalyser();
 Console.WriteLine("Enter User Mood: ");
 string message = Console.ReadLine();
-Console.WriteLine(mood.analyseMood(message));
+MoodAnalyser mood = new MoodAnalyser(message);
+Console.WriteLine(mood.analyseMood());
 
 

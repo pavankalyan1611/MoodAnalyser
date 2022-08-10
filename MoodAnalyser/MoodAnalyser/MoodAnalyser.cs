@@ -8,14 +8,21 @@ namespace MoodAnalyserPbr
 {
     public class MoodAnalyser
     {
-        public string analyseMood(string message)
+        public string message;
+        public MoodAnalyser()
         {
-            if (message.ToUpper().Contains("SAD"))
+
+        }
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+        public string analyseMood()
+        {
+            if (this.message.ToUpper().Contains("SAD"))
                 return "SAD";
             else
                 return "HAPPY";
-        }
-
-       
+        }       
     }
 }
