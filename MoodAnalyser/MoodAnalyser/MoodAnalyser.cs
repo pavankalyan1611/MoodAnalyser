@@ -11,9 +11,9 @@ namespace MoodAnalyserPbr
         public string analyseMood(string message)
         {
             if (message.ToUpper().Contains("SAD"))
-                return "SAD Mood";
+                return "SAD";
             else
-                return "HAPPY Mood";
+                return "HAPPY";
         }
 
        
