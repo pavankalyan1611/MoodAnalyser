@@ -8,21 +8,25 @@ namespace MoodAnalyserPbr
 {
     public class MoodAnalyser
     {
-        public string message = null;      
+        public string message;
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
        
         public string analyseMood()
         {
             try
             {   //"null"==""
                 if (message == null)
-                {
-                    throw new NullReferenceException();
-                }
-                if (this.message.Equals(string.Empty))  // ""==null
-                {
-                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
-                }
-                if (this.message.Contains("sad"))
+                    
+                    throw new NullReferenceException();  
+                
+                else if (this.message.Equals(string.Empty))  // ""==null
+                                                             // 
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");                
+                
+                else if (this.message.Contains("sad"))
                     return "SAD";
                 else
                     return "HAPPY";
@@ -30,11 +34,15 @@ namespace MoodAnalyserPbr
             catch (NullReferenceException obj)
             {
                 return ("HAPPY");
-            }           
+            }
+            catch (MoodAnalyserCustomException ex)
+            {
+                return "Mood should not be empty";
+            }
             finally
             {
                 Console.WriteLine("This code will always execute irrespective of exception came or not!!!!");
-            }           
+            }
         }       
     }
 }
