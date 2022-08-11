@@ -7,34 +7,32 @@ namespace MoodAnalyserTest
     public class UnitTest1
     {
 
-        //[TestMethod]
-        //public void GivenSadMoodMessage_WhenAnalyseShouldReturnSad()
-        //{
-        //    //Arrange
-        //    //string message = "I am in sad Mood";
-        //    //MoodAnalyser analyser = new MoodAnalyser(message);
-        //    //string expected = "SAD";
-
-        //    ////Act
-        //    //string actual = analyser.analyseMood();
-
-        //    ////Assert
-        //    //Assert.AreEqual(expected, actual);
-        //}
-
         [TestMethod]
-        public void GivenEmptyMessage_WhenAnalyseShouldReturnMoodAnalysysExceptionHandleMessage()
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
         {
             //Arrange
-            string message ="";
-            MoodAnalyser analyser = new MoodAnalyser(message);
-            string expected = "Mood should not be Empty";
-
+            // message ="";
+            object expected = new MoodAnalyser();
             //Act
-            string actual = analyser.analyseMood();
-
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyserPbr.MoodAnalyser");
             //Assert
-            Assert.AreEqual(expected, actual);
+               //expected.Equals(obj);
+            Assert.AreNotEqual(expected, obj);
         }
+
+      //  [TestMethod]
+        //public void GivenEmptyMessage_WhenAnalyseShouldReturnMoodAnalysysExceptionHandleMessage()
+        //{
+        //    //Arrange
+        //    string message ="";
+        //    MoodAnalyser analyser = new MoodAnalyser(message);
+        //    string expected = "Mood should not be Empty";
+
+        //    //Act
+        //    string actual = analyser.analyseMood();
+
+        //    //Assert
+        //    Assert.AreEqual(expected, actual);
+        //}
     }
 }

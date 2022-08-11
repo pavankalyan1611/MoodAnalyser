@@ -9,11 +9,11 @@ namespace MoodAnalyserPbr
     public class MoodAnalyser
     {
         public string message;
-      
-        public MoodAnalyser(string message)
-        {
-            this.message = message;
-        }
+
+        //public MoodAnalyser(string message)
+        //{
+        //    this.message = message;
+        //}
 
         public string analyseMood()
         {
