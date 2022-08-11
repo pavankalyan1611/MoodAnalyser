@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyserPbr
 {
-    public class MoodAnalyse
+    public class MoodAnalyser
     {
         public string message;
-        public MoodAnalyse(string message)
+        public MoodAnalyser(string message)
         {
             this.message = message;
         }
