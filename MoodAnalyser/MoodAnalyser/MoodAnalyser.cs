@@ -8,11 +8,8 @@ namespace MoodAnalyserPbr
 {
     public class MoodAnalyser
     {
-        public string message = null;
-        public MoodAnalyser()
-        {
-
-        }
+        public string message;
+      
         public MoodAnalyser(string message)
         {
             this.message = message;
@@ -28,7 +25,7 @@ namespace MoodAnalyserPbr
                 
                 else if (this.message.Equals(string.Empty))  // ""==null
                                                               
-                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");                
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");                
                 
                 else if (this.message.Contains("sad"))
                     return "SAD";
@@ -39,8 +36,8 @@ namespace MoodAnalyserPbr
             {
                string exception = obj.Message;
                 return exception;
-            }
-           
+            }           
+
             //finally
             //{
             //    Console.WriteLine("This code will always execute irrespective of exception came or not!!!!");

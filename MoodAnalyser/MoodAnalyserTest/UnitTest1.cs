@@ -23,12 +23,12 @@ namespace MoodAnalyserTest
         //}
 
         [TestMethod]
-        public void GivenNullMessage_WhenAnalyseShouldReturnMoodAnalysysExceptionHandleMessage()
+        public void GivenEmptyMessage_WhenAnalyseShouldReturnMoodAnalysysExceptionHandleMessage()
         {
             //Arrange
-            string message =null;
-            MoodAnalyser analyser = new MoodAnalyser();
-            string expected = "Mood should not be Null";
+            string message ="";
+            MoodAnalyser analyser = new MoodAnalyser(message);
+            string expected = "Mood should not be Empty";
 
             //Act
             string actual = analyser.analyseMood();
