@@ -9,12 +9,37 @@ using System.Threading.Tasks;
 namespace MoodAnalyserPbr
 {
     public class MoodAnalyserFactory
-    {       
-        public static object CreateMoodAnalyser(string className)
+    {
+        public static object CreateMoodAnalyser(string className, string constructorName)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-           Type moodAnalysType = assembly.GetType(className);
-           return Activator.CreateInstance(moodAnalysType);
+            string pattern = @"." + constructorName + "$";//.MoodAnalyser$
+            Match result = Regex.Match(className, pattern);
+            try
+            {
+                if (result.Success)
+                {
+                    try
+                    {                       
+                        Assembly executing = Assembly.GetExecutingAssembly();
+                        Type moodAnalyseType = executing.GetType(className);
+                        return Activator.CreateInstance(moodAnalyseType);
+                    }
+                    catch (ArgumentNullException)
+                    {
+                        Console.WriteLine("Your input is not valid");
+                        throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "Class not found");
+                    }                  
+                }
+                else
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor is not found");
+                }
+        }
+            catch (MoodAnalyserCustomException ex)
+            {
+               return ex.Message;
+            }
+            return null;
         }
     }
 }
