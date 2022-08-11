@@ -11,24 +11,24 @@ namespace MoodAnalyserTest
         //public void GivenSadMoodMessage_WhenAnalyseShouldReturnSad()
         //{
         //    //Arrange
-        //    string message = "I am in Sad Mood";
-        //    MoodAnalyser analyser = new MoodAnalyser(message);
-        //    string expected = "SAD";
+        //    //string message = "I am in sad Mood";
+        //    //MoodAnalyser analyser = new MoodAnalyser(message);
+        //    //string expected = "SAD";
 
-        //    //Act
-        //    string actual = analyser.analyseMood();
+        //    ////Act
+        //    //string actual = analyser.analyseMood();
 
-        //    //Assert
-        //    Assert.AreEqual(expected, actual);
+        //    ////Assert
+        //    //Assert.AreEqual(expected, actual);
         //}
 
         [TestMethod]
-        public void GivenEmptyOrNullMessage_WhenAnalyseShouldReturnExceptionHandleMessage()
+        public void GivenNullMessage_WhenAnalyseShouldReturnMoodAnalysysExceptionHandleMessage()
         {
             //Arrange
-            string message ="";
-            MoodAnalyser analyser = new MoodAnalyser(message);
-            string expected = "Mood should not be empty";
+            string message =null;
+            MoodAnalyser analyser = new MoodAnalyser();
+            string expected = "Mood should not be Null";
 
             //Act
             string actual = analyser.analyseMood();
