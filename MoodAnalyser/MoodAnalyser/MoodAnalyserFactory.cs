@@ -44,24 +44,31 @@ namespace MoodAnalyserPbr
 
         public static object CreateMoodAnalyseUsingParameterizedConstructor(string className, string constructorName, string message)
         {
-            Type type = typeof(MoodAnalyser);
-            if (type.Name.Equals(className) || type.FullName.Equals(className))
+            try
             {
-                if (type.Name.Equals(constructorName))
+                Type type = typeof(MoodAnalyser);
+                if (type.Name.Equals(className) || type.FullName.Equals(className))
                 {
-                    ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
-                    object instance = ctor.Invoke(new object[] { message });
-                    return instance;
+                    if (type.Name.Equals(constructorName))
+                    {
+                        ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
+                        object instance = ctor.Invoke(new object[] { message });
+                        return instance;
+                    }
+                    else
+                    {
+                        throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor is not found");
+                    }
                 }
                 else
                 {
-                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor is not found");
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "Class not found");
+
                 }
             }
-            else
+            catch (MoodAnalyserCustomException ex)
             {
-                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "Class not found");
-
+               return ex.Message;
             }
         }
     }

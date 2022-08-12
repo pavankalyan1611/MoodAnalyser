@@ -22,11 +22,11 @@ namespace MoodAnalyserTest
         [TestMethod]
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
         {
-            object expected = new MoodAnalyser("HAPPY"); //2000
+            object expected = "Class not found"; //2000
            //MoodAnalyser obj = (MoodAnalyser)expected;           
-            object Actual = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyserPbr.MoodAnalyser", "MoodAnalyser", "HAPPY");
-            expected.Equals(Actual);
-            //Assert.AreEqual(expected, obj);
+            object Actual = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyserPbr.MoodAnalyse", "MoodAnalyse", "HAPPY");
+            //expected.Equals(Actual);
+            Assert.AreEqual(expected, Actual);
         }
     }
 }
