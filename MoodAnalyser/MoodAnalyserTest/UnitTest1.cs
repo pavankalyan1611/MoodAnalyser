@@ -24,8 +24,8 @@ namespace MoodAnalyserTest
         {
             object expected = new MoodAnalyser("HAPPY"); //2000
            //MoodAnalyser obj = (MoodAnalyser)expected;           
-            object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyserPbr.MoodAnalyser", "MoodAnalyser", "HAPPY");
-            expected.Equals(obj);
+            object Actual = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyserPbr.MoodAnalyser", "MoodAnalyser", "HAPPY");
+            expected.Equals(Actual);
             //Assert.AreEqual(expected, obj);
         }
     }
